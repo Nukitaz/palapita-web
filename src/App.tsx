@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { MapPin, UtensilsCrossed, Clock, MessageCircle, ExternalLink, X } from "lucide-react";
+import { MapPin, UtensilsCrossed, Clock, MessageCircle, ExternalLink, X, CalendarCheck } from "lucide-react";
 
 // Datos editables del restaurante
 const RESTAURANT_DATA = {
   name: "Palapita",
   menuUrl: "https://tu-link-del-menu-qr.com",
+  reservationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfjcV9Be52YFlUkhqlcu2vao4rBLEWFGh6iUMQCE4GzvZ5Tjw/viewform",
   mapsUrl: "https://maps.app.goo.gl/LECaFaDWTPnTSHnb6",
   mapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59736.25003044061!2d-103.44750878133489!3d20.648591137458496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad0029d08389%3A0x8bc3f83b93353e97!2sPalapita%20Mariscos!5e0!3m2!1ses-419!2smx!4v1795151741846!5m2!1ses-419!2smx",
@@ -155,7 +156,6 @@ export default function App() {
       <div className="relative z-20 bg-[#090b14] shadow-[0_-25px_50px_#090b14]">
         
         {/* SECCIÓN 2: PORTADA ATMOSFÉRICA */}
-        {/* Padding limpio sin huecos gigantes */}
         <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center justify-center px-4 sm:px-6 py-20 md:py-32 overflow-hidden">
           <img
             src="/photos/local_2.jpg"
@@ -374,7 +374,19 @@ export default function App() {
         </footer>
       </div>
 
-      {/* BOTÓN FLOTANTE DE WHATSAPP */}
+      {/* BOTÓN FLOTANTE DE RESERVAR (IZQUIERDA) */}
+      <a
+        href={RESTAURANT_DATA.reservationUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Reservar mesa"
+        className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-50 flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-[#eb5e28] text-white font-semibold text-xs sm:text-sm shadow-[0_8px_30px_rgba(235,94,40,0.45)] hover:scale-105 transition-transform"
+      >
+        <CalendarCheck className="w-5 h-5" />
+        <span>Reservar</span>
+      </a>
+
+      {/* BOTÓN FLOTANTE DE WHATSAPP (DERECHA) */}
       <a
         href={whatsappLink}
         target="_blank"
@@ -383,7 +395,7 @@ export default function App() {
         className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 rounded-full bg-[#25D366] text-white font-semibold text-xs sm:text-sm shadow-[0_8px_30px_rgba(37,211,102,0.45)] hover:scale-105 transition-transform"
       >
         <MessageCircle className="w-5 h-5 fill-current" />
-        <span className="hidden sm:inline">WhatsApp</span>
+        <span>WhatsApp</span>
       </a>
     </div>
   );
