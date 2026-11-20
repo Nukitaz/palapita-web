@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { MapPin, UtensilsCrossed, Clock, MessageCircle, ExternalLink, X, CalendarCheck } from "lucide-react";
+import { MapPin, UtensilsCrossed, Clock, MessageCircle, ExternalLink, X, CalendarCheck, ArrowUpRight } from "lucide-react";
 
 // Datos editables del restaurante
 const RESTAURANT_DATA = {
   name: "Palapita",
   menuUrl: "https://tu-link-del-menu-qr.com",
   reservationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfjcV9Be52YFlUkhqlcu2vao4rBLEWFGh6iUMQCE4GzvZ5Tjw/viewform",
+  instagramUrl: "https://www.instagram.com/palapita.mariscos/",
+  instagramHandle: "@palapita.mariscos",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61557758566637&mibextid=LQQJ4d",
+  facebookName: "Palapita Mariscos",
   mapsUrl: "https://maps.app.goo.gl/LECaFaDWTPnTSHnb6",
   mapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59736.25003044061!2d-103.44750878133489!3d20.648591137458496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ad0029d08389%3A0x8bc3f83b93353e97!2sPalapita%20Mariscos!5e0!3m2!1ses-419!2smx!4v1795151741846!5m2!1ses-419!2smx",
@@ -98,7 +102,6 @@ export default function App() {
             alt="Ambiente del restaurante"
             className="w-full h-full object-cover object-center brightness-[0.45]"
           />
-          {/* Difuminado suavizado, sin bandas negras agresivas */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#090b14]/20 to-[#090b14]/80" />
         </motion.div>
 
@@ -152,7 +155,7 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* CONTENEDOR SÓLIDO (Se desliza por ENCIMA de la sección 1 sin dejar huecos) */}
+      {/* CONTENEDOR SÓLIDO */}
       <div className="relative z-20 bg-[#090b14] shadow-[0_-25px_50px_#090b14]">
         
         {/* SECCIÓN 2: PORTADA ATMOSFÉRICA */}
@@ -361,8 +364,75 @@ export default function App() {
           </div>
         </section>
 
+        {/* SECCIÓN 6: REDES SOCIALES */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl bg-[#131722] border border-white/5 p-6 sm:p-10 text-center shadow-xl"
+          >
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#eb5e28]">
+              EQUIPO PALAPITA
+            </span>
+            <h2 className="mt-1 sm:mt-2 text-2xl sm:text-4xl font-black uppercase tracking-tight">
+              SÍGUENOS EN NUESTRAS REDES
+            </h2>
+            <p className="mt-2 sm:mt-3 text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+              Entérate de eventos, música en vivo, platillos de temporada y el ambiente del fin de semana.
+            </p>
+
+            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              {/* INSTAGRAM */}
+              <a
+                href={RESTAURANT_DATA.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-[#090b14]/70 hover:bg-[#090b14] border border-white/10 hover:border-pink-500/50 transition-all"
+              >
+                <div className="flex items-center gap-3.5 text-left">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white shrink-0 shadow-lg">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white text-sm sm:text-base">Instagram</p>
+                    <p className="text-xs sm:text-sm text-slate-400">{RESTAURANT_DATA.instagramHandle}</p>
+                  </div>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-pink-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              </a>
+
+              {/* FACEBOOK */}
+              <a
+                href={RESTAURANT_DATA.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-[#090b14]/70 hover:bg-[#090b14] border border-white/10 hover:border-[#1877F2]/50 transition-all"
+              >
+                <div className="flex items-center gap-3.5 text-left">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#1877F2] flex items-center justify-center text-white shrink-0 shadow-lg">
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-bold text-white text-sm sm:text-base">Facebook</p>
+                    <p className="text-xs sm:text-sm text-slate-400">{RESTAURANT_DATA.facebookName}</p>
+                  </div>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-[#1877F2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              </a>
+            </div>
+          </motion.div>
+        </section>
+
         {/* FOOTER */}
-        <footer className="border-t border-white/5 py-6 px-4 sm:px-6 text-center flex flex-col items-center">
+        <footer className="border-t border-white/5 pt-6 pb-24 sm:pb-12 px-4 sm:px-6 text-center flex flex-col items-center">
           <img 
             src="/logo-restaurante.png" 
             alt="Palapita Logo" 
