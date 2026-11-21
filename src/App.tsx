@@ -150,7 +150,7 @@ export default function App() {
             transition={{ delay: 0.5, duration: 1 }}
             className="translate-y-4 sm:translate-y-8 md:translate-y-12 mt-6 md:mt-8 text-xs sm:text-sm md:text-base text-slate-300 italic tracking-wide font-medium drop-shadow-md px-2 pointer-events-none"
           >
-            "El rincón familiar donde la costa se siente en casa."
+            Restaurante de Mariscos para la Familia
           </motion.p>
         </motion.div>
       </section>
