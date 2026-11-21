@@ -287,7 +287,7 @@ export default function App() {
                 EXPLORA TODO NUESTRO MENÚ
               </h2>
               <p className="mt-2 sm:mt-3 text-slate-200 text-sm sm:text-base md:text-lg">
-                Consulta tostadas, cocteles, filetes, caldos, botanas y bebidas preparadas desde tu celular.
+                Consulta tostadas, cocteles, caldos, botanas y bebidas preparadas desde tu celular.
               </p>
               <a
                 href={RESTAURANT_DATA.menuUrl}
@@ -295,14 +295,14 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="mt-5 sm:mt-6 inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#eb5e28] text-white font-semibold text-sm md:text-base hover:bg-[#d45222] transition-colors shadow-lg w-full sm:w-auto"
               >
-                Abrir Menú Digital
+                Abrir Menú
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>
 
             <div className="w-full md:w-80 h-48 sm:h-56 rounded-2xl overflow-hidden shadow-2xl border border-white/20 shrink-0">
               <img
-                src="/photos/mejillones.jpg"
+                src="/photos/menu.png"
                 alt="Menú de mariscos"
                 className="w-full h-full object-cover"
               />
@@ -315,7 +315,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center rounded-3xl bg-[#131722] border border-white/5 p-5 sm:p-6 md:p-10 shadow-xl">
             <div>
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[#1b527a]">
-                TE ESPERAMOS EN EL LOCAL
+                TE ESPERAMOS EN LA PALAPA
               </span>
               <h2 className="mt-1 sm:mt-2 text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
                 UBICACIÓN Y HORARIOS
